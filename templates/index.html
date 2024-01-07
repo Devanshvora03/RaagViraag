@@ -1,9 +1,60 @@
-{% if request.user.is_authenticated %}
-  <p>{{ request.user.username }}</p>
-  <a href="{% url 'logout' %}">Logout</a>
-{% else %}
-  <a href="{% url 'login' %}">Login</a>
-  <a href="{% url 'signup' %}">Signup</a>
-{% endif %}
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Hero Section -->
+    <div class="header">
+        <div class="container">
+            <h1>Welcome to Raag Viraag</h1>
+            <p>Harmonizing Cultures : Exploring Raag Viraag!</p>
+        </div>
+    </div>
 
-<h1>Welcome!</h1>
+    <!-- Blog Posts Section -->
+    <div class="blog-posts">
+        <div class="container d-flex justify-content-around">
+            <!-- Blog Post Cards Go Here -->
+          <div class="w-60">
+            <!--block 1  -->
+            <div class="blog-post-card home_content">
+                <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+              <div>
+                <h2>Blog Post Title</h2>
+                <p class="post-meta">By Author | Date</p>
+                <p class="post-excerpt">A brief excerpt from the blog post...</p>
+                <a href="#" class="read-more-btn">Read More</a>
+              </div>
+          </div>
+            <!--block 2  -->
+            <div class="blog-post-card home_content">
+                <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+              <div>
+                <h2>Blog Post Title</h2>
+                <p class="post-meta">By Author | Date</p>
+                <p class="post-excerpt">A brief excerpt from the blog post...</p>
+                <a href="#" class="read-more-btn">Read More</a>
+              </div>
+          </div>
+            <!--block 3  -->
+            <div class="blog-post-card home_content">
+                <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+              <div>
+                <h2>Blog Post Title</h2>
+                <p class="post-meta">By Author | Date</p>
+                <p class="post-excerpt">A brief excerpt from the blog post...</p>
+                <a href="#" class="read-more-btn">Read More</a>
+              </div>
+          </div>
+            </div>
+
+            <!-- Repeat the above structure for additional blog posts -->
+            <div class="blog-post-card w-30 ad_block1">
+                <!-- <img src="https://via.placeholder.com/300" alt="Blog Post Image"> -->
+                <h2>Another Blog Post Title</h2>
+                <p class="post-meta">By Author | Date</p>
+                <p class="post-excerpt">A brief excerpt from another blog post...</p>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+
+        </div>
+    </div>
+    {% endblock content %}
