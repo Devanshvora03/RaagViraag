@@ -14,7 +14,7 @@ from .forms import *
 
 # Home page
 
-# PAGE_SIZE = 10
+PAGE_SIZE = 10
 
 def index(request):
     return render(request, 'index.html')
@@ -92,34 +92,34 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 
 
 
-# class BlogListView(ListView):
-#    model = Post
-#    template_name = 'index.html'
-#    context_object_name = 'posts'
-#    paginate_by = PAGE_SIZE
+class BlogListView(ListView):
+   model = Post
+   template_name = 'index.html'
+   context_object_name = 'posts'
+   paginate_by = PAGE_SIZE
 
-#    def get_context_data(self, *args, **kwargs):
-#       cat_list = Categories.objects.all()
-#       latestpost_list = Post.objects.all().order_by('-post_date')[:3]
-#       star_post =  Post.objects.first()  # Get the first post or None
-#       context = super().get_context_data(*args, **kwargs)
-#       context["cat_list"] = cat_list
-#       context["latestpost_list"] = latestpost_list
-#       context["star_post"] = star_post
-#       return context
+   def get_context_data(self, *args, **kwargs):
+      cat_list = Categories.objects.all()
+      latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+      star_post =  Post.objects.first()  # Get the first post or None
+      context = super().get_context_data(*args, **kwargs)
+      context["cat_list"] = cat_list
+      context["latestpost_list"] = latestpost_list
+      context["star_post"] = star_post
+      return context
 
-# class BlogDetailView(DetailView):
-#    model = Post
-#    template_name = 'blog_details.html'
+class BlogDetailView(DetailView):
+   model = Post
+   template_name = 'blog_details.html'
 
-#    def get_context_data(self, *args, **kwargs):
-#       cat_list = Categories.objects.all()
-#       latestpost_list = Post.objects.all().order_by('-post_date')[:3]
-#       context = super().get_context_data(*args, **kwargs)
-#       context["cat_list"] = cat_list
-#       context["latestpost_list"] = latestpost_list
-#       context["blog"] = True
-#       return context
+   def get_context_data(self, *args, **kwargs):
+      cat_list = Categories.objects.all()
+      latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+      context = super().get_context_data(*args, **kwargs)
+      context["cat_list"] = cat_list
+      context["latestpost_list"] = latestpost_list
+      context["blog"] = True
+      return context
 
 # @login_required(login_url='/login')
 # def send_comment(request, slug):

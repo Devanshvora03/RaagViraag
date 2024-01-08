@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+  
     <!-- Hero Section -->
     <div class="container_body">
     <div class="header">
@@ -16,35 +17,17 @@
             <!-- Blog Post Cards Go Here -->
           <div class="w-60">
             <!--block 1  -->
+            {% for post in latestpost_list %}
             <div class="blog-post-card home_content">
-                <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+                <img src="{{post.img.url}}" alt="{{post.image_alt}}" class="blog_img">
               <div>
-                <h2>Blog Post Title</h2>
-                <p class="post-meta">By Author | Date</p>
-                <p class="post-excerpt">A brief excerpt from the blog post...</p>
-                <a href="#" class="read-more-btn">Read More</a>
+                <h2>{{post.title}}</h2>
+                <p class="post-meta">By {{post.author.first_name}} {{post.author.last_name}} | {{post.post_date}} </p>
+                <p class="post-excerpt">{{post.meta_description}}</p>
+                <a href="{% url 'blog-detail' post.slug %}" class="read-more-btn">Read More</a>
               </div>
-          </div>
-            <!--block 2  -->
-            <div class="blog-post-card home_content">
-                <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
-              <div>
-                <h2>Blog Post Title</h2>
-                <p class="post-meta">By Author | Date</p>
-                <p class="post-excerpt">A brief excerpt from the blog post...</p>
-                <a href="#" class="read-more-btn">Read More</a>
-              </div>
-          </div>
-            <!--block 3  -->
-            <div class="blog-post-card home_content">
-                <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
-              <div>
-                <h2>Blog Post Title</h2>
-                <p class="post-meta">By Author | Date</p>
-                <p class="post-excerpt">A brief excerpt from the blog post...</p>
-                <a href="#" class="read-more-btn">Read More</a>
-              </div>
-          </div>
+            </div>
+            {% endfor %}
             </div>
 
             <!-- Repeat the above structure for additional blog posts -->
@@ -58,5 +41,5 @@
 
         </div>
     </div>
-  </div>
+  
     {% endblock content %}
