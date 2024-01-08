@@ -288,6 +288,15 @@ body {
   width: 70%;
 }
 
+.login_height{
+  height: 70vh;
+}
+
+.signup_height{
+height: 70vh;
+}
+
+
 
 .card {
   background: white;
