@@ -12,12 +12,7 @@ from django.views import View
 from .models import *
 from .forms import *
 
-# Home page
-
 PAGE_SIZE = 10
-
-# def index(request):
-#     return render(request, 'index.html')
 
 def contact(request):
     return render(request, 'contact.html')
@@ -27,6 +22,9 @@ def about(request):
 
 def categories(request):
     return render(request, 'categories.html')
+    
+def blog_detail(request):
+    return render(request, 'blog-detail.html')
 
 class RegisterView(View):
     form_class = RegisterForm
@@ -106,9 +104,10 @@ class BlogListView(ListView):
       context["star_post"] = star_post
       return context
 
+
 class BlogDetailView(DetailView):
    model = Post
-   template_name = 'blog_details.html'
+   template_name = 'blog-details.html'
 
    def get_context_data(self, *args, **kwargs):
       cat_list = Categories.objects.all()
@@ -119,18 +118,35 @@ class BlogDetailView(DetailView):
       context["blog"] = True
       return context
 
-# @login_required(login_url='/login')
-# def send_comment(request, slug):
-#     if request.method == 'POST':
-#         message = request.POST.get('message')
-#         post_id = request.POST.get('post_id')
-#         post_comment = PostComment.objects.create(sender=request.user, message=message)
-#         post = Post.objects.filter(id=post_id).first()
-#         post.comments.add(post_comment)
-#         return redirect('blog-details', slug=slug)
-#     else:
-#         # Handle other HTTP methods if needed
-#         return HttpResponseNotAllowed(['POST'])
+
+@login_required(login_url='/login')
+def send_comment(request, slug):
+    if request.method == 'POST':
+        message = request.POST.get('message')
+        post_id = request.POST.get('post_id')
+        post_comment = PostComment.objects.create(sender=request.user, message=message)
+        post = Post.objects.filter(id=post_id).first()
+        post.comments.add(post_comment)
+        return redirect('blog-details', slug=slug)
+    else:
+        # Handle other HTTP methods if needed
+        return HttpResponseNotAllowed(['POST'])
+
+def search(request):
+    template = 'search_list.html'
+    query = request.GET.get('q')
+    if query:
+        posts = Post.objects.filter(Q(title__icontains=query) | Q(body__icontains=query)).order_by('-post_date')
+    else:
+        posts = Post.objects.all()
+
+    cat_list = Categories.objects.all()
+    latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+    paginator = Paginator(posts, PAGE_SIZE)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+    return render(request, 'search_list.html', {'posts': posts, 'cat_list': cat_list, 'latestpost_list': latestpost_list, 'query': query})
+
 
 # def search(request):
 #    template = 'search_list.html'
@@ -147,15 +163,16 @@ class BlogDetailView(DetailView):
 #    posts = paginator.get_page(page)
 #    return render(request, template, {'posts': posts, 'cat_list': cat_list, 'latestpost_list': latestpost_list, 'query': query})
 
-# def CategoryView(request, slug):
-#    if Categories.objects.filter(slug=slug).exists():
-#       cats = Categories.objects.get(slug=slug)
-#       category_posts = Post.objects.filter(category__slug=slug).order_by('-post_date')
-#       cat_list = Categories.objects.all()
-#       latestpost_list = Post.objects.all().order_by('-post_date')[:3]
-#       paginator = Paginator(category_posts, PAGE_SIZE)
-#       page = request.GET.get('page')
-#       category_posts = paginator.get_page(page)
-#       return render(request, 'category_list.html', {'cats': cats, 'category_posts': category_posts, 'cat_list': cat_list, 'latestpost_list': latestpost_list})
-#    else:
-#       raise Http404
+
+def CategoryView(request, slug):
+   if Categories.objects.filter(slug=slug).exists():
+      cats = Categories.objects.get(slug=slug)
+      category_posts = Post.objects.filter(category__slug=slug).order_by('-post_date')
+      cat_list = Categories.objects.all()
+      latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+      paginator = Paginator(category_posts, PAGE_SIZE)
+      page = request.GET.get('page')
+      category_posts = paginator.get_page(page)
+      return render(request, 'categories.html', {'cats': cats, 'category_posts': category_posts, 'cat_list': cat_list, 'latestpost_list': latestpost_list})
+   else:
+      raise Http404
