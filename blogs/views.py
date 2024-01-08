@@ -25,11 +25,12 @@ def contact(request):
 def about(request):
     return render(request, 'about.html')
 
-def categories(request):
-    return render(request, 'categories.html')
+# def categor render(request, 'categories.html',{"category_posts" : category_posts})
     
-def blog_detail(request):
-    return render(request, 'blog-detail.html')
+def blog_detail(request,slug):
+    blog = Post.objects.get(slug=slug)
+    # print("helloo",blog.slug)
+    return render(request, 'blog-detail.html',{"blog" : blog})
 
 class RegisterView(View):
     form_class = RegisterForm
