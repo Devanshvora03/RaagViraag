@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+    <link rel="stylesheet" href="{% static "css/categories.css" %}">
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="header">
+    <div class="container">
+        <h1>About Us</h1>
+        <!-- <p>Harmonizing Cultures : Exploring Raag Viraag!</p> -->
+    </div>
+</div>
+
+<!-- Blog Posts Section -->
+<div class="blog-posts">
+    <div class="container d-flex justify-content-around">
+        <!-- Blog Post Cards Go Here -->
+      <div class="w-60">
+        <!--block 1  -->
+        <div class="blog-post-card home_content">
+            <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+          <div>
+            <h2>Nikhil Chaturvedi</h2>
+            <p class="post-meta">By Author | Date</p>
+            <p class="post-excerpt">A brief excerpt from the blog post...</p>
+            <a href="#" class="read-more-btn">Read More</a>
+          </div>
+      </div>
+        <!--block 2  -->
+        <div class="blog-post-card home_content">
+            <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+          <div>
+            <h2>Sameer Vyaas</h2>
+            <p class="post-meta">By Author | Date</p>
+            <p class="post-excerpt">A brief excerpt from the blog post...</p>
+            <a href="#" class="read-more-btn">Read More</a>
+          </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="header">
+  <div class="container">
+      <h1>Contact Us</h1>
+      <!-- <p>Harmonizing Cultures : Exploring Raag Viraag!</p> -->
+  </div>
+</div>
+<div class="w-100 home_content">
+<!--block 1  -->
+<div class="blog-post-card d-flex flex-column justify-content-center align-items-center w-25">
+    <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+    <h2>Nikhil Chaturvedi</h2>
+    <p class="post-meta">Contact No. : +91 99765 18678</p>
+    <p class="post-excerpt">Email : admin@raagviraag.com</p>
+    <!-- <a href="#" class="read-more-btn">Read More</a> -->
+</div>
+<!--block 2  -->
+<div class="blog-post-card d-flex flex-column justify-content-center align-items-center w-25">
+    <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+    <h2>Sameer Vyaas</h2>
+    <p class="post-meta">Contact No. : +91 90016 69666</p>
+    <p class="post-excerpt">Email : sv@raagviraag.com</p>
+    <!-- <a href="#" class="read-more-btn">Read More</a> -->
+</div>
+</div>
+
+{% endblock content %}
