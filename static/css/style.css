@@ -177,11 +177,11 @@ body {
 .home_content{
   margin-bottom: 50px;
 }
-.main_contactus{
+.main_background{
   background-color: #fefcf7;
 }
-.main_aboutus{
-  background-color: #fefcf7;
+.small_container{
+  background-color: #fefcf7!important;
 }
 
 @media (min-width: 815px) {
