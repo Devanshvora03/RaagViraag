@@ -1,0 +1,22 @@
+*.pyc
+node_modules
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+db.sqlite3
+env
+local_settings.py
+cademy/local_settings.py
+# Only for Development only
+blog/migrations/*
+**/migrations/**
+**/migrations
+**/migrations/__init__.py
+app/migrations
+blogApp/migrations/
+
+logs/
+logs/*.log
+blog/__pycache__/*
+myenv

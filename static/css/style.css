@@ -170,6 +170,49 @@ body {
     border-color: #6b747c!important;
 }
 
+.login_style{
+  background-color: #462727!important; /* Maroon background color */
+  color: #fff;
+}
+
+.login_style:hover{
+  background-color: #fefcf7!important; /* Maroon background color */
+  color: #462727;
+  border:2px solid #462727;
+}
+
+.small a{
+  color: #462727!important;
+}
+
+.small{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn_style{
+  width: 7rem;
+  margin: auto;
+}
+.font-weight-light{
+  font-family: 'Montserrat', sans-serif;
+}
+.home_content{
+  margin-bottom: 50px;
+}
+.main_background{
+  background-color: #fefcf7;
+}
+.small_container{
+  background-color: #fefcf7!important;
+}
+
+
+@media (min-width: 714px){
+  
+}
+
+
+
 @media (min-width: 815px) {
   .alignment1{
     display: flex;

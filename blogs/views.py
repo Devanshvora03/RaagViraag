@@ -14,10 +14,10 @@ from .forms import *
 
 # Home page
 
-# PAGE_SIZE = 10
+PAGE_SIZE = 10
 
-def index(request):
-    return render(request, 'index.html')
+# def index(request):
+#     return render(request, 'index.html')
 
 def contact(request):
     return render(request, 'contact.html')
@@ -93,36 +93,34 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     success_url = reverse_lazy('index')
 
 
+class BlogListView(ListView):
+   model = Post
+   template_name = 'index.html'
+   context_object_name = 'posts'
+   paginate_by = PAGE_SIZE
 
+   def get_context_data(self, *args, **kwargs):
+      cat_list = Categories.objects.all()
+      latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+      star_post =  Post.objects.first()  # Get the first post or None
+      context = super().get_context_data(*args, **kwargs)
+      context["cat_list"] = cat_list
+      context["latestpost_list"] = latestpost_list
+      context["star_post"] = star_post
+      return context
 
-# class BlogListView(ListView):
-#    model = Post
-#    template_name = 'index.html'
-#    context_object_name = 'posts'
-#    paginate_by = PAGE_SIZE
+class BlogDetailView(DetailView):
+   model = Post
+   template_name = 'blog_details.html'
 
-#    def get_context_data(self, *args, **kwargs):
-#       cat_list = Categories.objects.all()
-#       latestpost_list = Post.objects.all().order_by('-post_date')[:3]
-#       star_post =  Post.objects.first()  # Get the first post or None
-#       context = super().get_context_data(*args, **kwargs)
-#       context["cat_list"] = cat_list
-#       context["latestpost_list"] = latestpost_list
-#       context["star_post"] = star_post
-#       return context
-
-# class BlogDetailView(DetailView):
-#    model = Post
-#    template_name = 'blog_details.html'
-
-#    def get_context_data(self, *args, **kwargs):
-#       cat_list = Categories.objects.all()
-#       latestpost_list = Post.objects.all().order_by('-post_date')[:3]
-#       context = super().get_context_data(*args, **kwargs)
-#       context["cat_list"] = cat_list
-#       context["latestpost_list"] = latestpost_list
-#       context["blog"] = True
-#       return context
+   def get_context_data(self, *args, **kwargs):
+      cat_list = Categories.objects.all()
+      latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+      context = super().get_context_data(*args, **kwargs)
+      context["cat_list"] = cat_list
+      context["latestpost_list"] = latestpost_list
+      context["blog"] = True
+      return context
 
 # @login_required(login_url='/login')
 # def send_comment(request, slug):
@@ -152,15 +150,15 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 #    posts = paginator.get_page(page)
 #    return render(request, template, {'posts': posts, 'cat_list': cat_list, 'latestpost_list': latestpost_list, 'query': query})
 
-# def CategoryView(request, slug):
-#    if Categories.objects.filter(slug=slug).exists():
-#       cats = Categories.objects.get(slug=slug)
-#       category_posts = Post.objects.filter(category__slug=slug).order_by('-post_date')
-#       cat_list = Categories.objects.all()
-#       latestpost_list = Post.objects.all().order_by('-post_date')[:3]
-#       paginator = Paginator(category_posts, PAGE_SIZE)
-#       page = request.GET.get('page')
-#       category_posts = paginator.get_page(page)
-#       return render(request, 'category_list.html', {'cats': cats, 'category_posts': category_posts, 'cat_list': cat_list, 'latestpost_list': latestpost_list})
-#    else:
-#       raise Http404
+def CategoryView(request, slug):
+   if Categories.objects.filter(slug=slug).exists():
+      cats = Categories.objects.get(slug=slug)
+      category_posts = Post.objects.filter(category__slug=slug).order_by('-post_date')
+      cat_list = Categories.objects.all()
+      latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+      paginator = Paginator(category_posts, PAGE_SIZE)
+      page = request.GET.get('page')
+      category_posts = paginator.get_page(page)
+      return render(request, 'categories.html', {'cats': cats, 'category_posts': category_posts, 'cat_list': cat_list, 'latestpost_list': latestpost_list})
+   else:
+      raise Http404
