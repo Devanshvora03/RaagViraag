@@ -27,6 +27,9 @@ def about(request):
 
 def categories(request):
     return render(request, 'categories.html')
+    
+def blog_detail(request):
+    return render(request, 'blog-detail.html')
 
 class RegisterView(View):
     form_class = RegisterForm

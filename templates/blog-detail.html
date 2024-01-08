@@ -1,58 +1,32 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Raag Virag</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="{% static 'static/favicon.ico' %}" />
-    <link href="{% static 'styles.css' %}" rel="stylesheet" />
-    <link href="{% static 'blogs.css' %}" rel="stylesheet" />
-</head>
-<body class="mt-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-0">
-        <!-- ... (your navbar content) ... -->
-    </nav>
-
-    {% block content %}
-    <header class="py-5 bg-light border-bottom mb-4">
-        <!-- ... (your header content) ... -->
+{% block content %}
+<div class="d-flex justify-content-evenly bg-primary w-100 p-5">
+<div class="blog_width container bg-warning">
+    <header class="pb-5 d-flex justify-content-center">
+        <h2>helloo..</h2>
     </header>
-    <div class="container">
-        {% comment %} <div class="row"> {% endcomment %}
-            <div class="col-lg-8 w-100">
-                {% if latestpost_list %}
-                    <div class="row">
-                        <div class="col-lg-6 d-flex w-100">
-                            <div class="w-25 mx-5 container11">
-                                <div class="content1">
-                            {% for blog in latestpost_list %}
-                                <div class="card mb-4 ">
-                                    <img class="card-img-top" src="{{ blog.img.url }}" alt="Blog Image">
-                                    <div class="card-body">
-                                        <h2 class="card-title">{{ blog.title }}</h2>
-                                        <p class="card-text">{{ blog.content }}</p>
-                                        <a href="{% url 'blog-details' blog.slug %}" class="btn btn-primary">Read More</a>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                            </div>
-                        </div>
-                            <div class="w-75">
-                                <div class="card mb-4">
+    {% comment %} <div class="container"> {% endcomment %}
+                {% comment %} {% if latestpost_list %} {% endcomment %}
+                                <div class="card mb-4 w-100">
                                     <img class="card-img-top" src="{{star_post.img.url}}" width="500px" height="500px" alt="..." />
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                {% else %}
-                    <h2 class="text-center">Coming Soon...</h2>
-                {% endif %}
-            </div>
+                {% comment %} {% else %} {% endcomment %}
+                    {% comment %} <h2 class="text-center">Coming Soon...</h2> {% endcomment %}
+                {% comment %} {% endif %} {% endcomment %}
+            {% comment %} </div> {% endcomment %}
     </div>
+    <div class="w-25">
+        <div class="card mb-4 w-100">
+            <img class="card-img-top" src="{{star_post.img.url}}" width="500px" height="500px" alt="..." />
+        </div>
+        <div class="card mb-4 w-100">
+            <img class="card-img-top" src="{{star_post.img.url}}" width="500px" height="500px" alt="..." />
+        </div>
+        <div class="card mb-4 w-100">
+            <img class="card-img-top" src="{{star_post.img.url}}" width="500px" height="500px" alt="..." />
+        </div>
+</div>
+</div>
     {% endblock content %}
-</body>
-</html>
+
