@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static "static/css/home.css" %}">
+<link rel="stylesheet" href="{% static 'static/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'static/css/login.css' %}">
 
 {% block content %}
 <div class="form-content my-3 p-3">
@@ -60,7 +61,7 @@
                             <div class="form-row">
                                 <div class="col-md-10 offset-md-1">
                                     <div class="form-group mt-0 mb-1">
-                                        <button name="login" class="col-md-12 btn btn-primary" id="login">Sign in</button>
+                                        <button name="login" class="col-md-12 btn login_style" id="login">Sign in</button>
                                     </div>
                                 </div>
                             </div>
