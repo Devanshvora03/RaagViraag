@@ -8,4 +8,5 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('categories/', categories, name='categories'),
     path('blog/<slug:slug>/', BlogDetailView.as_view(), name='blog-detail'),
+    path('category/<slug:slug>/', CategoryView, name='category-detail'),
 ]
