@@ -148,6 +148,42 @@ body {
     border-color: #6b747c!important;
 }
 
+.login_style{
+  background-color: #462727!important; /* Maroon background color */
+  color: #fff;
+}
+
+.login_style:hover{
+  background-color: #fefcf7!important; /* Maroon background color */
+  color: #462727;
+  border:2px solid #462727;
+}
+
+.small a{
+  color: #462727!important;
+}
+
+.small{
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.btn_style{
+  width: 7rem;
+  margin: auto;
+}
+.font-weight-light{
+  font-family: 'Noto Sans', sans-serif;
+}
+.home_content{
+  margin-bottom: 50px;
+}
+.main_contactus{
+  background-color: #fefcf7;
+}
+.main_aboutus{
+  background-color: #fefcf7;
+}
+
 @media (min-width: 815px) {
   .alignment1{
     display: flex;
@@ -199,7 +235,7 @@ body {
 
 .home_content{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 @media (max-width: 1000px) {
