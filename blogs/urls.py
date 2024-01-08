@@ -9,7 +9,8 @@ urlpatterns = [
     path('search/', search, name='search'),
     path('contact/', contact, name='contact'),
     path('about/', about, name='about'),
-    path('categories/', categories, name='categories'),
-    path('blog/<slug:slug>/', BlogDetailView.as_view(), name='blog-detail'),
+    # path('categories/', categories, name='categories'),
+    # path('blog/<slug:slug>/', BlogDetailView.as_view(), name='blog-detail'),
+    path('blog/<slug:slug>/', blog_detail, name='blog-detail'),
     path('category/<slug:slug>/', CategoryView, name='category-detail'),
 ]
