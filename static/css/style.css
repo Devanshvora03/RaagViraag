@@ -164,7 +164,7 @@ body {
 }
 
 .small{
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn_style{
@@ -172,7 +172,7 @@ body {
   margin: auto;
 }
 .font-weight-light{
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .home_content{
   margin-bottom: 50px;
@@ -183,6 +183,13 @@ body {
 .small_container{
   background-color: #fefcf7!important;
 }
+
+
+@media (min-width: 714px){
+  
+}
+
+
 
 @media (min-width: 815px) {
   .alignment1{
@@ -246,3 +253,10 @@ body {
     display: inline-block!important;
   }
 }
+
+
+
+
+
+
+
