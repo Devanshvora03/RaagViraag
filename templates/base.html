@@ -37,10 +37,12 @@
             <a class="nav-link" href="/login">Login</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2 mx-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success1 bg-light-subtle btn_search" type="submit"><div class = "text" >Search</div></button>
-        </form>
+        <form class="d-flex" action="{% url 'search' %}" method="get">
+          <input class="form-control me-2 mx-2" type="search" name="q" placeholder="Search" aria-label="Search" value="{{ query }}">
+          <button class="btn btn-outline-success1 bg-light-subtle btn_search" type="submit">
+              <div class="text">Search</div>
+          </button>
+      </form>
       </div>
     </div>
   </nav>

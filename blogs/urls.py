@@ -6,6 +6,7 @@ urlpatterns = [
     path('', BlogListView.as_view(), name='index'),
     path('register/', RegisterView.as_view(), name='register'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('search/', search, name='search'),
     path('contact/', contact, name='contact'),
     path('about/', about, name='about'),
     path('categories/', categories, name='categories'),
