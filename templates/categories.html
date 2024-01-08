@@ -15,22 +15,28 @@
 <div class="blog-posts">
     <div class="container">
         <!-- Blog Post Cards Go Here -->
-        {% for post in category_posts %}
           <div class="blog-post-card w-33 d-flex justify-content-around w-75">
-              <img src="{{post.img.url}}" alt="{{post.}}" class="blog_img">
+              <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
               <div>
-                <h2>{{post.title}}</h2>
-                <p class="post-meta">{{post.author.first_name}} {{post.author.last_name}} | {{post.post_date}}</p>
-                <p class="post-excerpt">{{post.meta_description}}</p>
-                <a href="{% url 'blog-detail' post.slug %}" class="read-more-btn">Read More</a>
+                <h2>Blog Post Title</h2>
+                <p class="post-meta">By Author | Date</p>
+                <p class="post-excerpt">A brief excerpt from the blog post...</p>
+                <a href="#" class="read-more-btn">Read More</a>
               </div>
           </div>
-        {% endfor %}
     
 {% comment %} <div class="blog-posts"> {% endcomment %}
     {% comment %} <div class="container"> {% endcomment %}
         <!-- Blog Post Cards Go Here -->
-
+        <div class="blog-post-card w-33 d-flex justify-content-around w-75">
+            <img src="https://via.placeholder.com/300" alt="Blog Post Image" class="blog_img">
+          <div>
+            <h2>Blog Post Title</h2>
+            <p class="post-meta">By Author | Date</p>
+            <p class="post-excerpt">A brief excerpt from the blog post...</p>
+            <a href="#" class="read-more-btn">Read More</a>
+          </div>
+        </div>
     </div>
 </div>
 </div>

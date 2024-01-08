@@ -1,0 +1,10 @@
+.blog_img{
+    height: 160px!important;
+    width: 160px!important;
+}
+
+.home_content{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+}

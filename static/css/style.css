@@ -1,26 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@200&family=Roboto&display=swap');
-
-#google_translate_element .goog-te-gadget div select{
-  color: #392318 !important;
-  background-color: white;
-  background-image: none;
-  border-color: #6b747c !important;
-
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  user-select: none;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-
-}
-
-.tag_margin{
-  margin-left: 6px;
-}
 html {
   height: 100%;
   width: 100%;
@@ -257,9 +235,8 @@ body {
 
 
 .social_img{
-  margin-top: 9px;
-  width:25px;
-  height:25px;
+  width:30px;
+  height:30px;
 }
 
 .ad_block1{
@@ -268,16 +245,9 @@ body {
   justify-content: center;
 }
 
-
-.blog_img{
-  height: 160px!important;
-  width: 160px!important;
-}
-
 .home_content{
   display: flex;
   justify-content: space-evenly;
-  padding-bottom: 50px;
 }
 
 @media (max-width: 1000px) {
@@ -289,14 +259,9 @@ body {
   }
 }
 
-.blog_width{
-  width: 70%;
-}
 
-.login_height{
-  height: 70vh;
-}
 
-.signup_height{
-height: 70vh;
-}
+
+
+
+

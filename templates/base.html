@@ -6,11 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raag Viraag</title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    {% block css %}{% endblock css %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-<link rel="stylesheet" href="{% static 'css/categories.html' %}">
-
+    {% endblock css %}
 </head>
 <body>
   <nav class="navbar navbar-expand-md bg-body-tertiary nav-background1">
@@ -34,15 +33,16 @@
             <a class="nav-link" href="/about#contact">Contact</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#">Post</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
         </ul>
-        <form class="d-flex" action="{% url 'search' %}" method="get">
-          <input class="form-control me-2 mx-2" type="search" name="q" placeholder="Search" aria-label="Search" value="{{ query }}">
-          <button class="btn btn-outline-success1 bg-light-subtle btn_search" type="submit">
-              <div class="text">Search</div>
-          </button>
-      </form>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 mx-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success1 bg-light-subtle btn_search" type="submit"><div class = "text" >Search</div></button>
+        </form>
       </div>
     </div>
   </nav>
@@ -53,9 +53,7 @@
     <div class="footer">
         <div class="container">
           <div class="d-flex justify-content-center">
-            <div class="d-flex">
-              <img src="{% static 'images/language.png' %}" alt="language" class="social_img">
-          <div id="google_translate_element" class="mr-3 tag_margin"></div></div>
+          <div id="google_translate_element" class="mx-3"></div>
           <div class="d-flex mx-3">
           <div><a href="https://www.instagram.com/raag.viraag?utm_source=qr"><img src="{% static "images/instagram.png" %}" class="social_img mx-2"></a></div>
           <div><a href="https://www.facebook.com/share/AfdjVAjV7FEfDqUV/?mibextid=WC7FNe"><img src="{% static "images/facebook.png" %}" class="social_img mx-2"></a></div>

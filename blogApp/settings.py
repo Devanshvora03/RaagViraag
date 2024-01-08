@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogs',
     'ckeditor',
-    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -51,8 +50,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'social_core.backends.google.GoogleOAuth2',
-    # 'django.contrib.auth.backends.ModelBackend',
 ]
 
 ROOT_URLCONF = 'blogApp.urls'
@@ -144,6 +141,3 @@ EMAIL_PORT = 587  # or your SMTP port
 EMAIL_USE_TLS = True  # or EMAIL_USE_SSL = True if using SSL
 EMAIL_HOST_USER = 'sanatansanskritam@gmail.com'  # Update with your email
 EMAIL_HOST_PASSWORD = 'qqut dlpm wsuf lcmq'  # Update with your password
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '714681982002-jqvqoahmi3v0pnddmb2i8m57pqbjr3qn.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'

@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'static/css/home.css' %}">
-<link rel="stylesheet" href="{% static 'static/css/login.css' %}">
+<link rel="stylesheet" href="{% static "static/css/home.css" %}">
 
 {% block content %}
 <div class="main_background">
 <div class="form-content p-3">
     <div class="container">
-        <div class="row justify-content-center login_height p-5">
+        <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3 small_container">
                     <div class=" justify-content-center">
@@ -66,14 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            {% comment %} <div class="form-row">
-                                <div class="col-md-10 offset-md-1">
-                                    <div class="btn_style">
-                                        <button name="login google" class="col-md-12 btn login_style">  <a href="{% url 'google_login' %}">Sign in with Google</a></button>
-                                    </div>
-                                </div>
-                            </div> {% endcomment %}
 
                             <br>
 
