@@ -108,7 +108,7 @@ class BlogListView(ListView):
 
 class BlogDetailView(DetailView):
    model = Post
-   template_name = 'blog_details.html'
+   template_name = 'blog-details.html'
 
    def get_context_data(self, *args, **kwargs):
       cat_list = Categories.objects.all()
