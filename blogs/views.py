@@ -25,6 +25,9 @@ def contact(request):
 def about(request):
     return render(request, 'about.html')
 
+def categories(request):
+    return render(request, 'categories.html')
+
 class RegisterView(View):
     form_class = RegisterForm
     initial = {'key': 'value'}
