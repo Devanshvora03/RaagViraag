@@ -72,6 +72,7 @@ body {
 .blog-post-card {
     border: 1px solid #ecd8c6; /* Light brown border */
     padding: 20px;
+    margin-bottom: 20px;
     background-color: #fff; /* White background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
 }
@@ -80,12 +81,6 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 5px; /* Rounded corners for images */
-}
-.ad{
-  height:300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .read-more-btn {
