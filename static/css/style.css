@@ -88,12 +88,15 @@ body {
     padding: 10px 15px;
     background-color: #462727; /* Maroon background color */
     color: #fff;
-    text-decoration: none;
+    text-decoration: none!important;
     border-radius: 5px; /* Rounded corners for the button */
+    border:2px solid#462727!important;
 }
 
 .read-more-btn:hover {
-    background-color: #634242; /* Darker maroon on hover */
+    background-color: #fefcf7; 
+    color: #462727;/* Darker maroon on hover */
+    border-color:#462727!important;
 }
 
 .btn_search:hover{
