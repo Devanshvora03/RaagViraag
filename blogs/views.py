@@ -16,8 +16,8 @@ from .forms import *
 
 PAGE_SIZE = 10
 
-def index(request):
-    return render(request, 'index.html')
+# def index(request):
+#     return render(request, 'index.html')
 
 def contact(request):
     return render(request, 'contact.html')
@@ -88,8 +88,6 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'change_password.html'
     success_message = "Successfully Changed Your Password"
     success_url = reverse_lazy('index')
-
-
 
 
 class BlogListView(ListView):
