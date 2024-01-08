@@ -17,6 +17,11 @@ body {
     padding: 0 20px;
 }
 
+.container_body{
+  background-color: #fefcf7; 
+
+}
+
 .container h1 {
   font-family: 'Montserrat', sans-serif;
 }
@@ -50,13 +55,13 @@ body {
 }
 
 .header {
-    background-color: #fefcf7;
+  
     padding: 100px 0;
     text-align: center;
 }
 
 .header h1 {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     color: #462727; /* Maroon text color */
 }
 
@@ -90,6 +95,15 @@ body {
 .read-more-btn:hover {
     background-color: #634242; /* Darker maroon on hover */
 }
+
+.btn_search:hover{
+  background-color: #462727!important;
+}
+
+.text:hover{
+  color:#fff;
+}
+
 
 .footer {
     background-color: #462727; /* Maroon background color */
