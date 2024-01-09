@@ -133,12 +133,10 @@ class BlogDetailView(DetailView):
 # def send_comment(request, slug):
 #     if request.method == 'POST':
 #         message = request.POST.get('message')
-#         post_id = request.POST.get('post_id')
-        
+#         post_id = request.POST.get('post_id')        
 #         post_comment = PostComment.objects.create(sender=request.user, message=message)
 #         post = Post.objects.filter(id=post_id).first()
-#         post.comments.add(post_comment)
-        
+#         post.comments.add(post_comment)        
 #         return redirect('blog-details', slug=slug)
 #     else:
 #         # Handle other HTTP methods if needed
