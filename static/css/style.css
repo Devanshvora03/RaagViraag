@@ -276,7 +276,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .ad_block1{
+  .w-30{
     display: none!important;
   }
   .home_content{
@@ -289,14 +289,8 @@ body {
 }
 
 .login_height{
-  height: 70vh;
+  height: 69.5vh;
 }
-
-.signup_height{
-height: 70vh;
-}
-
-
 
 .card {
   background: white;
