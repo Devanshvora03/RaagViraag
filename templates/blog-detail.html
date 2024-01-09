@@ -17,6 +17,25 @@
                         </div>
                     </div>
                 </div>
+                {% comment %} <div class="comments-section">
+                    <h2>Comments</h2>
+                    {% for comment in post_comments %}
+                        <div class="comment">
+                            <p>{{ comment.sender.get_username }}: {{ comment.message }}</p>
+                        </div>
+                    {% endfor %}
+            
+                    {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'send_comment' slug=blog.slug %}">
+                            {% csrf_token %}
+                            <textarea name="message" placeholder="Add your comment" required></textarea>
+                            <input type="hidden" name="post_id" value="{{ blog.id }}">
+                            <button type="submit">Submit Comment</button>
+                        </form>
+                    {% else %}
+                        <p>Login to leave a comment.</p>
+                    {% endif %}
+                </div> {% endcomment %}
     <div class="w-25">
         <div class="blog-post-card ad_block1">
             <!-- <img src="https://via.placeholder.com/300" alt="Blog Post Image"> -->
@@ -39,7 +58,6 @@
             <p class="post-excerpt">A brief excerpt from another blog post...</p>
             <a href="#" class="read-more-btn">Read More</a>
         </div>
-        
 </div>
 </div>
     {% endblock content %}

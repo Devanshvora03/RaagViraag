@@ -12,12 +12,13 @@ class PostComment(models.Model):
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
     create_at = models.DateTimeField(auto_now_add=True)
-
+    
     def __str__(self):
         return f'{self.sender.get_username()}'
 
 class Categories(models.Model):
     categoryname = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='category', null=False, blank=False)
     slug = models.SlugField(max_length=255, null=True, blank=True)
 
     def __str__(self):
@@ -41,6 +42,7 @@ class Post(models.Model):
     meta_title=models.CharField(max_length=255, null=True, blank=True)
     meta_description=models.TextField(max_length=3000,null=True, blank=True)
     image_alt=models.CharField(max_length=1500,blank=True,null=True)
+    comments = models.ManyToManyField(PostComment, related_name='post_comments', blank=True)
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)

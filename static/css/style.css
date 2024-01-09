@@ -348,3 +348,8 @@ height: 70vh;
     }
   }
 }
+
+.bg_img{
+  background-image: url('../images/bgimg.png');
+  background-size: cover;
+}
