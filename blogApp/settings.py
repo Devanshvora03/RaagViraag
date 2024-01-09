@@ -148,3 +148,8 @@ EMAIL_HOST_PASSWORD = 'qqut dlpm wsuf lcmq'  # Update with your password
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '714681982002-jqvqoahmi3v0pnddmb2i8m57pqbjr3qn.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+try:
+    from .local_settings import *
+except Exception as e:
+    print(e)
