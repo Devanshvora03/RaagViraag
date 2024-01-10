@@ -17,7 +17,7 @@
         {% if slug1 in request.path %}
         {% for post in category_posts %}
         <div class="blog-post-card w-33 d-flex justify-content-around w-75">
-            <img src="{{post.img.url}}" alt="{{post.image_alt}}" class="blog_img">
+            <img src="{{post.img.url}}" alt="{{post.image_alt}}" class="category_img">
             <div>
                 <h2>{{post.title}}</h2>
                 <p class="post-meta">{{post.author.first_name}} {{post.author.last_name}} | {{post.post_date}}</p>
@@ -27,18 +27,28 @@
         </div>
         {% endfor %}
         {% else %}
-    
+        <div>
         {% for post in category_posts %}
-        <div class="blog-post-card w-33 d-flex justify-content-around w-75">
-            <img src="{{post.category.image.url}}" alt="{{post.image_alt}}" class="blog_img">
-            <div>
+        <div class="blog-post-card w-60 d-flex justify-content-around">
+            <img src="{{post.category.image.url}}" alt="{{post.image_alt}}" class="category_img">
+            <div class="w-25">
                 <h2>{{post.category.categoryname}}</h2> 
                 {% comment %} <p class="post-meta">{{post.author.first_name}} {{post.author.last_name}} | {{post.post_date}}</p> {% endcomment %}
                 <p class="post-excerpt">{{post.meta_description}}</p>
-                <a href="{% url 'category-view' post.slug %}" class="read-more-btn">Read More</a>
+                <a href="{% url 'blog-detail' post.slug %}" class="read-more-btn">Read More</a>
             </div>
         </div>
         {% endfor %}
+    </div>
+    <div class="w-30">
+        <div class="blog-post-card ad_block1">
+            <!-- <img src="https://via.placeholder.com/300" alt="Blog Post Image"> -->
+            <h2>Another Blog Post Title</h2>
+            <p class="post-meta">By Author | Date</p>
+            <p class="post-excerpt">A brief excerpt from another blog post...</p>
+            <a href="#" class="read-more-btn">Read More</a>
+        </div>
+    
         {% endif %}
         
 {% comment %} <div class="blog-posts"> {% endcomment %}
