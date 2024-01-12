@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponseNotAllowed
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render, redirect
+from django.shortcuts import reverse
+from django.contrib.auth import logout
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -59,6 +61,15 @@ class RegisterView(View):
 
         return render(request, self.template_name, {'form': form})
 
+@login_required
+def splash_screen(request):
+    return render(request, 'splash_screen.html')
+
+def custom_logout(request):
+    logout(request)
+    # Redirect to the homepage or any other desired URL after logout
+    return redirect('index')  # Replace 'index' with the name of your home page URL pattern
+
 
 class CustomLoginView(LoginView):
     form_class = LoginForm
@@ -70,10 +81,9 @@ class CustomLoginView(LoginView):
             self.request.session.set_expiry(0)
             self.request.session.modified = True
 
-        return super(CustomLoginView, self).form_valid(form)
-    
-    def get_success_url(self):
-        return reverse_lazy('index')
+        response = super(CustomLoginView, self).form_valid(form)
+
+        return redirect(reverse('splash_screen'))
 
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
