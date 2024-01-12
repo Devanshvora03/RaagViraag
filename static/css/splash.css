@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@200&family=Roboto&display=swap');
+
+.splash_font_h1 {
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.splash_font_h2 {
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.splash_intro {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: #f5e6c1;
+}
+
+.splash_logo_header {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #462727;
+  text-align: center;
+}
+
+.splash_logo {
+  position: relative;
+  display: inline-block;
+}
