@@ -79,40 +79,7 @@
   }
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>
-    let intro = document.querySelector('.splash_intro');
-    let logo = document.querySelector('.splash_logo_header');
-    let logoSpan = document.querySelectorAll('.splash_logo');
-    
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        
-        logoSpan.forEach((span, i) => {
-          
-          setTimeout(() => {
-            span.classList.add('active');
-          },(i+1)*300)
-      
-    });
-    
-    setTimeout(() => {
-      
-      logoSpan.forEach((span, i) => {
-        
-        setTimeout(() => {
-          span.classList.remove('active');
-          span.classList.add('fade');
-        },(i+1)*50)
-      })  
-    },2000);
-    
-    setTimeout(() => {
-      intro.style.top = '-100vh';
-    },2500)
-    
-  })
-})
-</script>
+
 {% endblock js %}
 </body>
 </html>
