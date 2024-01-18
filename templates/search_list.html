@@ -15,9 +15,11 @@
         {% if posts %}
             <div class="row">
                 {% for post in posts %}
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="blog-post-card home_content mb-4">
-                            <img src="{{ post.img.url }}" alt="{{ post.image_alt }}" class="blog_img">
+                            {% if post.img %}
+                                <img src="{{ post.img.url }}" alt="{{ post.image_alt }}" class="blog_img">
+                            {% endif %}
                             <div>
                                 <h2>{{ post.title }}</h2>
                                 <p class="post-meta">By {{ post.author.first_name }} {{ post.author.last_name }} | {{ post.post_date }}</p>

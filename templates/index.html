@@ -22,7 +22,9 @@
             <!--block 1  -->
             {% for post in latestpost_list %}
             <div class="blog-post-card home_content">
+                {% if post.img %}
                 <img src="{{post.img.url}}" alt="{{post.image_alt}}" class="home_img">
+                {% endif %}
               <div>
                 <h2>{{post.title}}</h2>
                 <p class="post-meta">By {{post.author.first_name}} {{post.author.last_name}} | {{post.post_date}} </p>

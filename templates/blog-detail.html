@@ -9,7 +9,9 @@
                 <div class="item-1 d-flex justify-content-center">
                     <div  class="card d-flex justify-content-center">
                         <div class="thumb w-100 p-4 d-flex justify-content-center">
-                            <img src="{{blog.img.url}}" class="blog_img">
+                            {% if blog.img %}
+                                <img src="{{blog.img.url}}" class="blog_img">
+                            {% endif %}
                         </div>
                             <article>
                                 <p>{{blog.body | safe}}</p>

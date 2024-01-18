@@ -17,7 +17,9 @@
         {% if slug1 in request.path %}
         {% for post in category_posts %}
         <div class="blog-post-card w-33 d-flex justify-content-around w-75">
+            {% if post.img %}
             <img src="{{post.img.url}}" alt="{{post.image_alt}}" class="category_img">
+            {% endif %}
             <div>
                 <h2>{{post.title}}</h2>
                 <p class="post-meta">{{post.author.first_name}} {{post.author.last_name}} | {{post.post_date}}</p>
