@@ -20,7 +20,15 @@ def contact(request):
     return render(request, 'contact.html')
 
 def about(request):
-    return render(request, 'about.html')
+    about_content = AboutContent.objects.first()
+    admin_info_list = AdminInfo.objects.all()
+
+    context = {
+        'about_content': about_content,
+        'admin_info_list': admin_info_list,
+    }
+
+    return render(request, 'about.html', context)
 
 def category(request) :
     category_posts = Post.objects.all()
@@ -104,22 +112,25 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
 
 
 class BlogListView(ListView):
-   model = Post
-   template_name = 'index.html'
-   context_object_name = 'posts'
-   paginate_by = PAGE_SIZE
+    model = Post
+    template_name = 'index.html'
+    context_object_name = 'posts'
+    paginate_by = PAGE_SIZE
 
-   def get_context_data(self, *args, **kwargs):
-      cat_list = Categories.objects.all()
-      latestpost_list = Post.objects.all().order_by('-post_date')[:3]
-      star_post =  Post.objects.first()  # Get the first post or None
-      context = super().get_context_data(*args, **kwargs)
-      context["cat_list"] = cat_list
-      context["latestpost_list"] = latestpost_list
-      context["star_post"] = star_post
-      return context
+    def get_context_data(self, *args, **kwargs):
+        cat_list = Categories.objects.all()
+        latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+        star_post = Post.objects.first()  # Get the first post or None
+        sidebar_content = SidebarContent.objects.first()  # Get the first SidebarContent instance
 
-   
+        context = super().get_context_data(*args, **kwargs)
+        context["cat_list"] = cat_list
+        context["latestpost_list"] = latestpost_list
+        context["star_post"] = star_post
+        context["sidebar_content"] = sidebar_content
+        return context
+
+
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'blog-details.html'
@@ -127,15 +138,14 @@ class BlogDetailView(DetailView):
     def get_context_data(self, *args, **kwargs):
         cat_list = Categories.objects.all()
         latestpost_list = Post.objects.all().order_by('-post_date')[:3]
-        # post_comments = PostComment.objects.filter(post=self.object)
-        
+        sidebar_content = SidebarContent.objects.first()  # Get the first SidebarContent instance
+
         context = super().get_context_data(*args, **kwargs)
         context["cat_list"] = cat_list
         context["latestpost_list"] = latestpost_list
-        # context["post_comments"] = post_comments
         context["blog"] = True
         context["cat_list"] = cat_list
-
+        context["sidebar_content"] = sidebar_content
         return context
 
 

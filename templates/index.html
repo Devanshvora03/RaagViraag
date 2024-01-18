@@ -7,8 +7,8 @@
     
     <div class="header bg_img">
         <div class="container">
-            <h1>Welcome to Raag Viraag!</h1>
-            <p>Harmonizing Cultures : Exploring Raag Viraag!</p>
+            <h1>{{ sidebar_content.hero_title }}</h1>
+            <p>{{ sidebar_content.hero_subtitle }}</p>
         </div>
     </div>
 
@@ -35,14 +35,15 @@
 
             <!-- Repeat the above structure for additional blog posts -->
             <div class="w-30">
-            <div class="blog-post-card ad_block1">
-                <!-- <img src="https://via.placeholder.com/300" alt="Blog Post Image"> -->
-                <h2>Another Blog Post Title</h2>
-                <p class="post-meta">By Author | Date</p>
-                <p class="post-excerpt">A brief excerpt from another blog post...</p>
-                <a href="#" class="read-more-btn">Read More</a>
+                <div class="sidebar">
+                    {% if sidebar_content %}
+                        <div class="sidebar-content">
+                            <h2>{{ sidebar_content.side_title }}</h2>
+                            <p>{{ sidebar_content.side_desc | safe }}</p>
+                        </div>
+                    {% endif %}
             </div>
-<div class="blog-post-card">
+            
   <div class="blog-post-card ad_block1">
       <!-- Display Category List -->
       <h2>Categories</h2>
@@ -54,7 +55,6 @@
   </div>
   <!-- Example of another card (you can remove or modify as needed) -->
   
-</div>
 
         </div>
     </div>

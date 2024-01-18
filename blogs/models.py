@@ -55,3 +55,27 @@ def slug_generator(sender, instance, *args, **kwargs):
         instance.slug = unique_slug_generator(instance)
 
 pre_save.connect(slug_generator, sender=Post)
+
+class SidebarContent(models.Model):
+    side_title = models.CharField(max_length=250, null=True, blank=True)
+    side_desc = RichTextField(null=True, blank=True)
+    hero_title = models.CharField(max_length=250, null=True, blank=True)
+    hero_subtitle = models.CharField(max_length=250, null=True, blank=True)
+
+    def __str__(self):
+        return self.side_title
+
+class AboutContent(models.Model):
+    text = RichTextField(null=True, blank=True)
+
+    def __str__(self):
+        return 'About Content'
+    
+class AdminInfo(models.Model):
+    profile = models.ImageField(upload_to='blog', null=True, blank=True)
+    name = models.CharField(max_length=250, null=True, blank=True)
+    phone = models.IntegerField(null=True, blank=True)
+    desc = RichTextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
