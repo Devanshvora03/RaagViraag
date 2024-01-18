@@ -41,6 +41,12 @@
                     </div> 
                 {% endcomment %}
     <div class="blog_block_2 container">
+        <div class="blog-post-card ad_block_1">
+            <div class="sidebar-content">
+                <h2>{{ blog.side_title }}</h2>
+                <p>{{ blog.side_desc | safe }}</p>
+            </div>
+        </div>
         {% for post in latestpost_list %}
         <div class="blog-post-card ad_block1">
             <!-- <img src="https://via.placeholder.com/300" alt="Blog Post Image"> -->

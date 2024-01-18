@@ -43,6 +43,8 @@ class Post(models.Model):
     meta_description=models.TextField(max_length=3000,null=True, blank=True)
     image_alt=models.CharField(max_length=1500,blank=True,null=True)
     comments = models.ManyToManyField(PostComment, related_name='post_comments', blank=True)
+    sidebar_title = models.CharField(max_length=250, null=True, blank=True)
+    sidebar_desc = RichTextField(null=True, blank=True)
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
