@@ -354,7 +354,7 @@ body {
 
 .home_img{
   width: 30%;
-  margin-right: 20px;
+  margin-right: 20px !important;
 }
 
 .category_img{
