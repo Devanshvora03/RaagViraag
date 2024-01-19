@@ -43,8 +43,9 @@ def category(request) :
 def blog_detail(request,slug):
     blog = Post.objects.get(slug=slug)
     latestpost_list = Post.objects.all().order_by('-post_date')[:3]
+    cat_list = Categories.objects.all()
     print("helloo",blog.slug)
-    return render(request, 'blog-detail.html',{"blog" : blog , "latestpost_list" : latestpost_list})
+    return render(request, 'blog-detail.html',{"blog" : blog , "latestpost_list" : latestpost_list, "cat_list" : cat_list})
 
 class RegisterView(View):
     form_class = RegisterForm
