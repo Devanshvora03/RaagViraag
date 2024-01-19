@@ -16,6 +16,10 @@ from .forms import *
 
 PAGE_SIZE = 10
 
+def base():
+    cat_list = Categories.objects.all()
+    return cat_list 
+
 def contact(request):
     return render(request, 'contact.html')
 
@@ -26,6 +30,7 @@ def about(request):
     context = {
         'about_content': about_content,
         'admin_info_list': admin_info_list,
+        'cat_list' : base()
     }
 
     return render(request, 'about.html', context)
@@ -118,7 +123,8 @@ class BlogListView(ListView):
     paginate_by = PAGE_SIZE
 
     def get_context_data(self, *args, **kwargs):
-        cat_list = Categories.objects.all()
+        cat_list = base()
+        # cat_list = Categories.objects.all()
         latestpost_list = Post.objects.all().order_by('-post_date')[:3]
         star_post = Post.objects.first()  # Get the first post or None
         sidebar_content = SidebarContent.objects.first()  # Get the first SidebarContent instance
@@ -136,7 +142,8 @@ class BlogDetailView(DetailView):
     template_name = 'blog-details.html'
 
     def get_context_data(self, *args, **kwargs):
-        cat_list = Categories.objects.all()
+        cat_list = base()
+        # cat_list = Categories.objects.all()
         latestpost_list = Post.objects.all().order_by('-post_date')[:3]
         sidebar_content = SidebarContent.objects.first()  # Get the first SidebarContent instance
 
@@ -184,7 +191,8 @@ def CategoryView(request, slug):
       slug1 = slug
       cats = Categories.objects.get(slug=slug)
       category_posts = Post.objects.filter(category__slug=slug).order_by('-post_date')
-      cat_list = Categories.objects.all()
+    #   cat_list = Categories.objects.all()
+      cat_list = base()
       latestpost_list = Post.objects.all().order_by('-post_date')[:3]
       paginator = Paginator(category_posts, PAGE_SIZE)
       page = request.GET.get('page')
