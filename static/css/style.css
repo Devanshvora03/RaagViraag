@@ -278,7 +278,7 @@ body {
 }
 
 @media (max-width: 1100px) {
-  .container{
+  .container1{
     display: flex!important;
     justify-content: center;
   }
