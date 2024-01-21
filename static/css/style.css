@@ -267,13 +267,13 @@ body {
 
 .home_content{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: start;
   padding-bottom: 50px;
   margin-bottom: 50px;
 }
 .category_content{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: start;
   padding-bottom: 50px;
 }
 
@@ -391,6 +391,7 @@ body {
 
 .category_img{
   width: 30%;
+  margin-right: 20px !important;
 }
 
 .about_us_content{
