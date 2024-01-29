@@ -5,12 +5,12 @@
 {% block content %}
 
     <!-- Search Results Section -->
-    <div class="container mt-4">
-        <h2>Search Results</h2>
+    <h2>Search Results</h2>
 
-        {% if query %}
-            <p>Showing results for: <strong>{{ query }}</strong></p>
-        {% endif %}
+    {% if query %}
+        <p>Showing results for: <strong>{{ query }}</strong></p>
+    {% endif %}
+    <div class="container mt-4">
 
         {% if posts %}
             <div class="row">

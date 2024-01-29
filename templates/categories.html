@@ -12,11 +12,12 @@
 </div>
 <!-- Blog Posts Section -->
 <div class="blog-posts">
-    <div class="container">
+    <div class="container container1">
         <!-- Blog Post Cards Go Here -->
         {% if slug1 in request.path %}
+        <div class="w-60">
         {% for post in category_posts %}
-        <div class="blog-post-card w-33 d-flex justify-content-around w-75">
+        <div class="blog-post-card category_content">
             {% if post.img %}
             <img src="{{post.img.url}}" alt="{{post.image_alt}}" class="category_img">
             {% endif %}
@@ -28,6 +29,7 @@
             </div>
         </div>
         {% endfor %}
+    </div>
         {% else %}
         <div>
         {% for post in category_posts %}
