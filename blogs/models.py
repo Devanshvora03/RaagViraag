@@ -74,7 +74,7 @@ class AboutContent(models.Model):
         return 'About Content'
     
 class AdminInfo(models.Model):
-    profile = models.ImageField(upload_to='blog', null=True, blank=True)
+    profile = models.ImageField(upload_to='blog',)
     name = models.CharField(max_length=250, null=True, blank=True)
     phone = models.IntegerField(null=True, blank=True)
     desc = RichTextField(null=True, blank=True)

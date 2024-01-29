@@ -26,7 +26,9 @@
           {% for admin_info in admin_info_list %}
             <div class="blog-post-card about_us_content">
               <div>
+                {% if admin_info.profile %}
                 <img src="{{ admin_info.profile.url }}" alt="Admin Image" class="about_us_img">
+                {% endif %}
                 <h2>{{ admin_info.name }}</h2>
                 <h6>{{ admin_info.phone }}</h6>
               </div>
